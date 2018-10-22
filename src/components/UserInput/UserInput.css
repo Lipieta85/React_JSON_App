@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+}
+
+.form {
+    margin: 15px 25px; 
+}
+
+.form input {
+    margin-right: 10px;
+    width: 300px;
+}
+
+.submit {
+    background-color: #00AB6B;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    padding: 5px 35px;
+    outline: 0;
+}
+
+.reset {
+    background-color: #fff;
+    border: none;
+    color: #00AB6B;
+    height: 25px;
+    padding: 0;
+    margin-top: 18px;
+}
+
+.reset:hover {
+    border-bottom: 1px solid #00AB6B
+}
+
+

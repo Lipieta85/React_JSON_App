@@ -1,0 +1,21 @@
+.Header {
+    display: flex;
+}
+
+Table {
+    width: 100%;
+}
+
+.message {
+    margin-top: 20px;
+}
+
+span {
+    color: #00AB6B;;
+}
+
+Table th, tr {
+    text-align: center;
+}
+
+
