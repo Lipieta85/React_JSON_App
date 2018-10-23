@@ -8,39 +8,43 @@ import UserInput from './components/UserInput/UserInput';
 import Rows from './components/Rows/Rows';
 import Cockpit from './components/Cockpit/Cockpit';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationCircle, faCheck } from '@fortawesome/free-solid-svg-icons'
+
 class App extends Component {
     state = {
         users: [],
         showForm: false,
         showButton: true,
         message: '',
-        sort: false,
         click: 0,
     }
-
+    
     componentDidMount() {
+        const limit = <span><FontAwesomeIcon icon={faExclamationCircle} /> You can`t add new user becasue of limit</span>
         axios.get('http://localhost:4000/users')
             .then(response => {
                 this.setState({ users: response.data });
                 console.log(response);
                 if (this.state.users.length > 9) {
-                    this.setState({ message: 'You can`t add new user becasue of limit' })
+                    this.setState({ message: limit })
                 }
             })
     }
 
     messageError = () => {
         if (this.state.users.length > 9) {
-            this.setState({ message: 'You can`t add new user becasue of limit' })
+            this.setState({ message: limit })
         }
     }
 
     userLimitHandler = () => {
         const doesShow = this.state.showForm;
         const doesShowButton = this.state.showButton;
+        const limit = <span><FontAwesomeIcon icon={faExclamationCircle} /> You can`t add new user becasue of limit</span>
 
         this.setState({
-            message: 'You can`t add new user becasue of limit',
+            message: limit,
             showButton: !doesShowButton,
             showForm: !doesShow,
         })
@@ -58,14 +62,15 @@ class App extends Component {
             email: event.target.email.value,
         }
 
-
         if (this.state.users.length >= 9) {
             this.userLimitHandler()
         }
 
+        const added = <span><FontAwesomeIcon icon={faCheck} /> You have successfully added a user</span>
+
         this.setState({
             users: [...this.state.users, data],
-            message: 'You have successfully added a user',
+            message: added,
             showButton: !doesShowButton,
             showForm: !doesShow,
         })
@@ -94,10 +99,11 @@ class App extends Component {
     }
 
     deleteUserHandler = (userIndex, user) => {
+        const deleteUser = <span><FontAwesomeIcon icon={faCheck} /> You have successfully delete user</span>
 
         this.setState({
             users: this.state.users.filter((user, i) => i !== userIndex),
-            message: 'You have successfully delete user',
+            message: deleteUser,
             showButton: true,
             showForm: false,
         });
