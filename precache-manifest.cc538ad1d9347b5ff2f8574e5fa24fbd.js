@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/Unamo_React_JSON_App/static/js/runtime~main.5939433e.js"
   },
   {
-    "revision": "9ad12882c6bd3c975668",
-    "url": "/Unamo_React_JSON_App/static/js/main.9ad12882.chunk.js"
+    "revision": "d9019604c08774d597b8",
+    "url": "/Unamo_React_JSON_App/static/js/main.d9019604.chunk.js"
   },
   {
-    "revision": "8540ea298f41baa52277",
-    "url": "/Unamo_React_JSON_App/static/js/1.8540ea29.chunk.js"
+    "revision": "482d5c09eca80dc9da0d",
+    "url": "/Unamo_React_JSON_App/static/js/1.482d5c09.chunk.js"
   },
   {
-    "revision": "9ad12882c6bd3c975668",
+    "revision": "d9019604c08774d597b8",
     "url": "/Unamo_React_JSON_App/static/css/main.110cca76.chunk.css"
   },
   {
-    "revision": "8540ea298f41baa52277",
+    "revision": "482d5c09eca80dc9da0d",
     "url": "/Unamo_React_JSON_App/static/css/1.fbc3f266.chunk.css"
   },
   {
-    "revision": "7c03a1ff3b50eaa17d456903bc5dbca6",
+    "revision": "5901191a84ec641af5c6621475c0c9f1",
     "url": "/Unamo_React_JSON_App/index.html"
   }
 ];
