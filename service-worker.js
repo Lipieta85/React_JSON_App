@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/Unamo_React_JSON_App/precache-manifest.cc538ad1d9347b5ff2f8574e5fa24fbd.js"
+  "/Unamo_React_JSON_App/precache-manifest.9354327a95f857d57afeb2153d2e4c54.js"
 );
 
 workbox.clientsClaim();
