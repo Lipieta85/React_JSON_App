@@ -19,9 +19,9 @@ class App extends Component {
         message: '',
         click: 0,
     }
-    
+
     componentDidMount() {
-        const limit = <span><FontAwesomeIcon icon={faExclamationCircle} /> You can`t add new user becasue of limit</span>
+        const limit = <span><FontAwesomeIcon icon={faExclamationCircle} /> You can`t add new user because of limit</span>
         axios.get('http://localhost:4000/users')
             .then(response => {
                 this.setState({ users: response.data });
@@ -33,8 +33,10 @@ class App extends Component {
     }
 
     messageError = () => {
+        const limit = <span><FontAwesomeIcon icon={faExclamationCircle} /> You can`t add new user because of limit</span>
         if (this.state.users.length > 9) {
             this.setState({ message: limit })
+            return disabled;
         }
     }
 
@@ -62,23 +64,32 @@ class App extends Component {
             email: event.target.email.value,
         }
 
-        if (this.state.users.length >= 9) {
+        if (this.state.users.length >= 10) {
             this.userLimitHandler()
         }
 
         const added = <span><FontAwesomeIcon icon={faCheck} /> You have successfully added a user</span>
 
-        this.setState({
-            users: [...this.state.users, data],
-            message: added,
-            showButton: !doesShowButton,
-            showForm: !doesShow,
+        const emailUsers = this.state.users.map(email => {
+            return email.email
         })
 
-        axios.post('http://localhost:4000/users', data)
-            .then((response) => {
-                console.log(response);
+        if (emailUsers.value === data.email) {
+            return false
+
+        } else {
+            this.setState({
+                users: [...this.state.users, data],
+                message: added,
+                showButton: !doesShowButton,
+                showForm: !doesShow,
             })
+
+            axios.post('http://localhost:4000/users', data)
+                .then((response) => {
+                    console.log(response);
+                })
+        }
 
     }
 

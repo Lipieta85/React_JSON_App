@@ -17,11 +17,17 @@ class userInput extends Component {
     }
 
     handleEmailChange = (event) => {
-        this.setState({ email: event.target.value });
+        this.setState({
+            email: event.target.value,
+            showButton: true,
+        });
     }
 
     handleNameChange = (event) => {
-        this.setState({ name: event.target.value });
+        this.setState({
+            name: event.target.value,
+            showButton: true,
+        });
     }
 
     handleResetInput = () => {
@@ -49,7 +55,8 @@ class userInput extends Component {
 
                     <button className='submit' disabled={!enabled} >Submit</button>
                 </form>
-                <button className='reset' onClick={this.handleResetInput} >Reset fields</button>
+                {this.state.showButton && <button className='reset' onClick={this.handleResetInput}
+                    onChange={this.handleNameChange && this.handleEmailChange} >Reset fields</button>}
             </div>
         )
     }
