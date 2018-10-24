@@ -9,7 +9,6 @@ const Cockpit = (props) => {
             <button onClick={() => {
                 props.toggled(),
                 props.toggledButton();
-                {props.error()}
             }}
                 disabled={props.disabled} ><FontAwesomeIcon icon={faPlusCircle} /> <span>Add user</span> </button>
         </div>

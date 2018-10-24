@@ -32,26 +32,6 @@ class App extends Component {
             })
     }
 
-    messageError = () => {
-        const limit = <span><FontAwesomeIcon icon={faExclamationCircle} /> You can`t add new user because of limit</span>
-        if (this.state.users.length > 9) {
-            this.setState({ message: limit })
-            return disabled;
-        }
-    }
-
-    userLimitHandler = () => {
-        const doesShow = this.state.showForm;
-        const doesShowButton = this.state.showButton;
-        const limit = <span><FontAwesomeIcon icon={faExclamationCircle} /> You can`t add new user becasue of limit</span>
-
-        this.setState({
-            message: limit,
-            showButton: !doesShowButton,
-            showForm: !doesShow,
-        })
-    }
-
     userDataHandler = (event) => {
         event.preventDefault();
 
@@ -64,10 +44,7 @@ class App extends Component {
             email: event.target.email.value,
         }
 
-        if (this.state.users.length >= 10) {
-            this.userLimitHandler()
-        }
-
+        const addedLimit = <span><FontAwesomeIcon icon={faCheck} /> You have successfully added a user, you can`t add new user because of limit</span>
         const added = <span><FontAwesomeIcon icon={faCheck} /> You have successfully added a user</span>
         const error = <span><FontAwesomeIcon icon={faExclamationCircle} /> This email address already exists</span>
 
@@ -84,19 +61,29 @@ class App extends Component {
                 })
 
         } else {
-            this.setState({
-                users: [...this.state.users, data],
-                message: added,
-                showButton: !doesShowButton,
-                showForm: !doesShow,
-            })
+            if (this.state.users.length >= 9) {
+                this.setState({
+                    users: [...this.state.users, data],
+                    message: addedLimit,
+                    showButton: !doesShowButton,
+                    showForm: !doesShow,
+                })
+            }
+
+            else {
+                this.setState({
+                    users: [...this.state.users, data],
+                    message: added,
+                    showButton: !doesShowButton,
+                    showForm: !doesShow,
+                })
+            }
 
             axios.post('http://localhost:4000/users', data)
                 .then((response) => {
                     console.log(response);
                 })
         }
-
     }
 
     toggleFormHandler = () => {
@@ -172,13 +159,18 @@ class App extends Component {
 
     render() {
         const users = this.state.users.map((user, index, id) => {
-            return <Rows index={index + 1} key={index} delete={() => this.deleteUserHandler(index, user)} name={user.name} email={user.email} />
+            return <Rows
+                index={index + 1}
+                key={index}
+                delete={() => this.deleteUserHandler(index, user)}
+                name={user.name}
+                email={user.email} />
         })
 
         return (
             <div className="App" >
                 <div className='Header'>
-                    {this.state.showButton && <Cockpit error={this.messageError}
+                    {this.state.showButton && <Cockpit
                         disabled={this.state.users.length > 9}
                         toggledButton={this.toggleButtonHandler}
                         toggled={this.toggleFormHandler} />}
