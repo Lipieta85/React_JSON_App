@@ -69,13 +69,19 @@ class App extends Component {
         }
 
         const added = <span><FontAwesomeIcon icon={faCheck} /> You have successfully added a user</span>
+        const error = <span><FontAwesomeIcon icon={faExclamationCircle} /> This email address already exists</span>
 
         const emailUsers = this.state.users.map(email => {
             return email.email
         })
 
-        if (emailUsers.value === data.email) {
-            return false
+        if (emailUsers.includes(data.email) === true) {
+            return event.preventDefault(),
+                this.setState({
+                    message: error,
+                    showButton: !doesShowButton,
+                    showForm: !doesShow,
+                })
 
         } else {
             this.setState({
