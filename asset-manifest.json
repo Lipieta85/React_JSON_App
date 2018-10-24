@@ -1,15 +1,15 @@
 {
   "main.css": "/Unamo_React_JSON_App/static/css/main.110cca76.chunk.css",
-  "main.js": "/Unamo_React_JSON_App/static/js/main.9ef98a40.chunk.js",
-  "main.js.map": "/Unamo_React_JSON_App/static/js/main.9ef98a40.chunk.js.map",
+  "main.js": "/Unamo_React_JSON_App/static/js/main.d3a5b379.chunk.js",
+  "main.js.map": "/Unamo_React_JSON_App/static/js/main.d3a5b379.chunk.js.map",
   "static/css/1.fbc3f266.chunk.css": "/Unamo_React_JSON_App/static/css/1.fbc3f266.chunk.css",
   "static/js/1.482d5c09.chunk.js": "/Unamo_React_JSON_App/static/js/1.482d5c09.chunk.js",
   "static/js/1.482d5c09.chunk.js.map": "/Unamo_React_JSON_App/static/js/1.482d5c09.chunk.js.map",
   "runtime~main.js": "/Unamo_React_JSON_App/static/js/runtime~main.5939433e.js",
   "runtime~main.js.map": "/Unamo_React_JSON_App/static/js/runtime~main.5939433e.js.map",
-  "static/css/1.fbc3f266.chunk.css.map": "/Unamo_React_JSON_App/static/css/1.fbc3f266.chunk.css.map",
   "static/css/main.110cca76.chunk.css.map": "/Unamo_React_JSON_App/static/css/main.110cca76.chunk.css.map",
+  "static/css/1.fbc3f266.chunk.css.map": "/Unamo_React_JSON_App/static/css/1.fbc3f266.chunk.css.map",
   "index.html": "/Unamo_React_JSON_App/index.html",
-  "precache-manifest.9354327a95f857d57afeb2153d2e4c54.js": "/Unamo_React_JSON_App/precache-manifest.9354327a95f857d57afeb2153d2e4c54.js",
+  "precache-manifest.78778f9c62961aa7e023614b9a15b390.js": "/Unamo_React_JSON_App/precache-manifest.78778f9c62961aa7e023614b9a15b390.js",
   "service-worker.js": "/Unamo_React_JSON_App/service-worker.js"
 }
