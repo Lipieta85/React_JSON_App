@@ -18,6 +18,7 @@ class App extends Component {
         showButton: true,
         message: '',
         click: 0,
+        placeholder: true,
     }
 
     componentDidMount() {
@@ -38,15 +39,15 @@ class App extends Component {
         const doesShow = this.state.showForm;
         const doesShowButton = this.state.showButton;
 
+        const addedLimit = <span><FontAwesomeIcon icon={faCheck} /> You have successfully added a user, you can`t add new user because of limit</span>
+        const added = <span><FontAwesomeIcon icon={faCheck} /> You have successfully added a user</span>
+        const error = <span><FontAwesomeIcon icon={faExclamationCircle} /> This email address already exists</span>
+
         const data = {
             id: Math.random() * 100 + 10,
             name: event.target.name.value,
             email: event.target.email.value,
         }
-
-        const addedLimit = <span><FontAwesomeIcon icon={faCheck} /> You have successfully added a user, you can`t add new user because of limit</span>
-        const added = <span><FontAwesomeIcon icon={faCheck} /> You have successfully added a user</span>
-        const error = <span><FontAwesomeIcon icon={faExclamationCircle} /> This email address already exists</span>
 
         const emailUsers = this.state.users.map(email => {
             return email.email
@@ -68,9 +69,7 @@ class App extends Component {
                     showButton: !doesShowButton,
                     showForm: !doesShow,
                 })
-            }
-
-            else {
+            } else {
                 this.setState({
                     users: [...this.state.users, data],
                     message: added,
@@ -187,6 +186,7 @@ class App extends Component {
                         </tr>
                     </thead>
                     <tbody>
+                        {<span>No users has been added yet</span> && this.state.placeholder && this.placeholderHandler()}
                         {users}
                     </tbody>
                 </Table>

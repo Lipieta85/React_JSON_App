@@ -2,7 +2,7 @@
   "name": "unamo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lipieta85.github.io/Unamo_React_JSON_App/",
+  "homepage": "https://Lipieta@bitbucket.org/Lipieta/unamo_react_json_app.git",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
