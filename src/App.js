@@ -170,9 +170,9 @@ class App extends Component {
             <div className="App" >
                 <div className='Header'>
                     {this.state.showButton && <Cockpit
-                        disabled={this.state.users.length > 9}
-                        toggledButton={this.toggleButtonHandler}
-                        toggled={this.toggleFormHandler} />}
+                                                disabled={this.state.users.length > 9}
+                                                toggledButton={this.toggleButtonHandler}
+                                                toggled={this.toggleFormHandler} />}
                     <span className='message'>{this.state.message}</span>
                     {this.state.showForm && <UserInput send={this.userDataHandler} />}
                 </div>
@@ -186,7 +186,7 @@ class App extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {<span>No users has been added yet</span> && this.state.placeholder && this.placeholderHandler()}
+                        {<span>No users has been added yet</span> && this.state.placeholder}
                         {users}
                     </tbody>
                 </Table>
