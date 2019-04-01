@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/Lipieta/unamo_react_json_app.git/precache-manifest.d544cfd62526549d0d37a2179a5725ca.js"
+  "/React_JSON_App/precache-manifest.bb8f7a9a4ddc8324c09a3a4d830fcc20.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Lipieta/unamo_react_json_app.git/index.html", {
+workbox.routing.registerNavigationRoute("/React_JSON_App/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
