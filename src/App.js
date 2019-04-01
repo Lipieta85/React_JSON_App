@@ -23,7 +23,7 @@ class App extends Component {
 
     componentDidMount() {
         const limit = <span><FontAwesomeIcon icon={faExclamationCircle} /> You can`t add new user because of limit</span>
-        axios.get('http://localhost:4000/users')
+        axios.get('https://my-json-server.typicode.com/lipieta85/unamo_react_json_app/users/')
             .then(response => {
                 this.setState({ users: response.data });
                 console.log(response);
@@ -70,18 +70,17 @@ class App extends Component {
                     showForm: !doesShow,
                 })
             } else {
-                this.setState({
-                    users: [...this.state.users, data],
-                    message: added,
-                    showButton: !doesShowButton,
-                    showForm: !doesShow,
-                })
+                axios.post('https://my-json-server.typicode.com/lipieta85/unamo_react_json_app/db', data)
+                    .then((response) => {
+                        console.log(response)
+                        this.setState({
+                            users: [...this.state.users, data],
+                            message: added,
+                            showButton: !doesShowButton,
+                            showForm: !doesShow,
+                        })
+                    })
             }
-
-            axios.post('http://localhost:4000/users', data)
-                .then((response) => {
-                    console.log(response);
-                })
         }
     }
 
@@ -104,16 +103,15 @@ class App extends Component {
     deleteUserHandler = (userIndex, user) => {
         const deleteUser = <span><FontAwesomeIcon icon={faCheck} /> You have successfully delete user</span>
 
-        this.setState({
-            users: this.state.users.filter((user, i) => i !== userIndex),
-            message: deleteUser,
-            showButton: true,
-            showForm: false,
-        });
-
         axios.delete('http://localhost:4000/users/' + user.id)
             .then(response => {
                 console.log(response)
+                this.setState({
+                    users: this.state.users.filter((user, i) => i !== userIndex),
+                    message: deleteUser,
+                    showButton: true,
+                    showForm: false,
+                });
             })
     }
 
@@ -124,7 +122,7 @@ class App extends Component {
         updatedClick++
         this.setState({ click: updatedClick })
 
-        if (updatedClick <= 1) {
+        if (updatedClick % 2 !== 0) {
             let ascUsers = this.state.users
             ascUsers.sort((a, b) => {
                 return parseFloat(a.name.length) - parseFloat(b.name.length);
@@ -139,7 +137,7 @@ class App extends Component {
                 .then(json => console.log(json))
         }
 
-        if (updatedClick > 1) {
+        if (updatedClick % 2 == 0) {
 
             let descUsers = this.state.users
             descUsers.sort((a, b) => {
@@ -165,31 +163,32 @@ class App extends Component {
                 name={user.name}
                 email={user.email} />
         })
+    
 
-        return (
-            <div className="App" >
-                <div className='Header'>
-                    {this.state.showButton && <Cockpit
-                                                disabled={this.state.users.length > 9}
-                                                toggledButton={this.toggleButtonHandler}
-                                                toggled={this.toggleFormHandler} />}
-                    <span className='message'>{this.state.message}</span>
-                    {this.state.showForm && <UserInput send={this.userDataHandler} />}
-                </div>
-                <Table striped>
-                    <thead onClick={(event) => this.reorderHandler(event)} >
-                        <tr>
-                            <th>LP</th>
-                            <th>Name</th>
-                            <th>E-mail</th>
-                            <th>Delete User</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {<span>No users has been added yet</span> && this.state.placeholder}
-                        {users}
-                    </tbody>
-                </Table>
+    return(
+            <div className = "App" >
+            <div className='Header'>
+                {this.state.showButton && <Cockpit
+                    disabled={this.state.users.length > 9}
+                    toggledButton={this.toggleButtonHandler}
+                    toggled={this.toggleFormHandler} />}
+                <span className='message'>{this.state.message}</span>
+                {this.state.showForm && <UserInput send={this.userDataHandler} />}
+            </div>
+            <Table striped>
+                <thead onClick={(event) => this.reorderHandler(event)} >
+                    <tr>
+                        <th>LP</th>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Delete User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {<span>No users has been added yet</span> && this.state.placeholder}
+                    {users}
+                </tbody>
+            </Table>
             </div >
         );
     }

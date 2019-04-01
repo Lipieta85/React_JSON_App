@@ -1,7 +1,9 @@
 import React from 'react';
-import './Rows.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
+import './Rows.css';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 
 const rows = (props) => {

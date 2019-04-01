@@ -1,19 +1,14 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": 0.7672041648197416,
+      "name": "Rafał",
+      "email": "Ola@wp.pl"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 108.42081617931497,
+      "name": "arek",
+      "email": "k268@wp.pl"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
