@@ -70,7 +70,7 @@ class App extends Component {
                     showForm: !doesShow,
                 })
             } else {
-                axios.post('https://my-json-server.typicode.com/lipieta85/unamo_react_json_app/db', data)
+                axios.post('https://my-json-server.typicode.com/lipieta85/unamo_react_json_app/users', data)
                     .then((response) => {
                         console.log(response)
                         this.setState({
@@ -103,7 +103,7 @@ class App extends Component {
     deleteUserHandler = (userIndex, user) => {
         const deleteUser = <span><FontAwesomeIcon icon={faCheck} /> You have successfully delete user</span>
 
-        axios.delete('http://localhost:4000/users/' + user.id)
+        axios.delete('https://my-json-server.typicode.com/lipieta85/unamo_react_json_app/users/' + user.id)
             .then(response => {
                 console.log(response)
                 this.setState({
@@ -132,7 +132,7 @@ class App extends Component {
                 users: ascUsers,
             })
 
-            fetch('http://localhost:4000/users?_sort=name.length&_order=asc')
+            fetch('https://my-json-server.typicode.com/lipieta85/unamo_react_json_app/users?_sort=name.length&_order=asc')
                 .then(response => response.json())
                 .then(json => console.log(json))
         }
@@ -148,7 +148,7 @@ class App extends Component {
                 users: descUsers,
             })
 
-            fetch('http://localhost:4000/users?_sort=name.length&_order=desc')
+            fetch('https://my-json-server.typicode.com/lipieta85/unamo_react_json_app/users?_sort=name.length&_order=desc')
                 .then(response => response.json())
                 .then(json => console.log(json))
         }
